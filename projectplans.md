@@ -80,3 +80,24 @@ The system integrates a long-term memory feature into a conversational AI using 
 
 ## Conclusion
 This document will serve as the living architecture plan for the Long-Term Memory Chatbot project. It will be updated as the project evolves to reflect any new decisions and changes in the system architecture.
+
+## Project Structure
+/myproject-monorepo
+    /backend
+        /app
+            __init__.py
+            main.py
+            /api
+            /models
+            /schemas
+        requirements.txt
+        ...
+    /frontend
+        /public
+        /src
+        package.json
+        ...
+    .gitignore
+    README.md
+    ...
+

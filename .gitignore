@@ -93,6 +93,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.venv_testcase
 
 # Spyder project settings
 .spyderproject
