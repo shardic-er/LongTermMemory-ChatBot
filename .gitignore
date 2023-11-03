@@ -171,3 +171,4 @@ heroku.yml
 # GitHub Actions
 /.github/workflows/
 
+/backend/venv_testcase
