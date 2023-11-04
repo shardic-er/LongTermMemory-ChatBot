@@ -4,9 +4,6 @@ $scriptDirectory = Split-Path -Parent -Path $MyInvocation.MyCommand.Definition
 # Store the parent directory of the script's location
 $parentDirectory = (Get-Item $scriptDirectory).Parent.FullName
 
-# Calculate the depth of the parent directory
-$parentDepth = ($parentDirectory -split '\\').Count
-
 # Get ignore patterns from the external file in the script's directory
 $ignorePatternsPath = Join-Path -Path $scriptDirectory -ChildPath "ignore_patterns.txt"
 
@@ -33,10 +30,14 @@ if (-not (Test-Path -Path $parentDirectory)) {
 # Perform the directory listing
 try {
     Get-ChildItem -Path $parentDirectory -Recurse |
-    Where-Object { $_.FullName -notmatch $ignoreRegex } |
+    Where-Object { -not ($_.FullName -match $ignoreRegex) } |
+    Sort-Object FullName |
     ForEach-Object {
-        $depth = ($_.FullName -split '\\').Count - $parentDepth
-        ("    " * $depth) + $_.Name
+        $itemPath = $_.FullName
+        $relativePath = $itemPath.Substring($parentDirectory.Length)
+        $depth = ($relativePath -split '\\', -1, 'SimpleMatch').Count - 1
+        $indent = "    " * $depth
+        "$indent$($_.Name)"
     } | Set-Content -Path $outputFilePath
 }
 catch {

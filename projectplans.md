@@ -82,22 +82,35 @@ The system integrates a long-term memory feature into a conversational AI using 
 This document will serve as the living architecture plan for the Long-Term Memory Chatbot project. It will be updated as the project evolves to reflect any new decisions and changes in the system architecture.
 
 ## Project Structure
-/myproject-monorepo
-    /backend
-        /app
-            __init__.py
-            main.py
-            /api
-            /models
-            /schemas
-        requirements.txt
-        ...
-    /frontend
-        /public
-        /src
-        package.json
-        ...
-    .gitignore
-    README.md
-    ...
-
+```
+backend
+app
+api
+main.py
+models
+schemas
+requirements.txt
+frontend
+longterm-memory-gpt-frontend
+package.json
+package-lock.json
+public
+favicon.ico
+index.html
+manifest.json
+robots.txt
+src
+App.css
+App.test.tsx
+App.tsx
+index.css
+index.tsx
+react-app-env.d.ts
+setupTests.ts
+tsconfig.json
+projectplans.md
+readme.md
+tools
+ignore_patterns.txt
+project_structure.txt
+```
