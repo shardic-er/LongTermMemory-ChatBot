@@ -142,14 +142,6 @@ Thumbs.db
 *.sublime*
 .vscode/
 
-# Docker related
-.dockerignore
-**/Dockerfile*
-**/docker-compose*.yml
-
-# Heroku
-heroku.yml
-
 # Environment variables
 .env.local
 .env.development.local
